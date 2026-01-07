@@ -7,15 +7,11 @@ import {
   BarChart3,
   Cpu,
   Globe,
-  ShieldCheck,
-  Users,
   CheckCircle2,
   Speech,
   Landmark,
   FileChartColumn,
   Construction,
-  Mail,
-  Send,
   Loader2,
 } from "lucide-react";
 import emailjs from "@emailjs/browser";
@@ -121,6 +117,7 @@ const TEAM = [
   },
 ];
 
+/* Engagement models reserved for future use
 const ENGAGEMENT_MODELS = [
   {
     name: "Transformation Audit",
@@ -159,6 +156,7 @@ const ENGAGEMENT_MODELS = [
     investment: "ลงทุนรายเดือน",
   },
 ];
+*/
 
 // --- SUB-COMPONENTS ---
 
