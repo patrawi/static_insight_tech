@@ -117,46 +117,24 @@ const TEAM = [
   },
 ];
 
-/* Engagement models reserved for future use
-const ENGAGEMENT_MODELS = [
+const EXPERIENCES = [
   {
-    name: "Transformation Audit",
-    type: "Discovery",
-    desc: "เหมาะสำหรับธุรกิจที่ต้องการ roadmap แต่ยังไม่รู้จะเริ่มตรงไหน",
-    scope: [
-      "วิเคราะห์กระบวนการทางธุรกิจอย่างครอบคลุม",
-      "ประเมินความพร้อมด้านข้อมูล",
-      "พิมพ์เขียวสถาปัตยกรรมระบบ",
-    ],
-    deliverable: "แผนยุทธศาสตร์และพิมพ์เขียวระบบ",
-    investment: "ลงทุนครั้งเดียว",
+    name: "Wisesight",
+    image: "/experiences/wisesight.png",
   },
   {
-    name: "System Build",
-    type: "Project",
-    desc: "เหมาะสำหรับการสร้างระบบใหม่เพื่อใช้งานจริง",
-    scope: [
-      "พัฒนาระบบตามความต้องการ",
-      "นำร่องการทำงานอัตโนมัติ",
-      "เปิดตัวระบบและอบรมการใช้งาน",
-    ],
-    deliverable: "ระบบพร้อมใช้งานจริง",
-    investment: "ตามโปรเจกต์",
+    name: "Fintech",
+    image: "/experiences/Fintech.jpeg",
   },
   {
-    name: "Data Partner",
-    type: "Retainer",
-    desc: "เหมาะสำหรับองค์กรที่ต้องการทีม Tech & Data คอยดูแลต่อเนื่อง",
-    scope: [
-      "รายงาน Performance Visualization รายเดือน",
-      "บำรุงรักษาระบบและอัปเดตความปลอดภัย",
-      "งาน Data Science เฉพาะกิจ",
-    ],
-    deliverable: "การสนับสนุนและปรับปรุงอย่างต่อเนื่อง",
-    investment: "ลงทุนรายเดือน",
+    name: "Motorhub",
+    image: "/experiences/motorhub.jpeg",
+  },
+  {
+    name: "ART",
+    image: "/experiences/ART.png",
   },
 ];
-*/
 
 // --- SUB-COMPONENTS ---
 
@@ -189,6 +167,7 @@ const Navbar = () => {
           {[
             { label: "services", link: "services" },
             { label: "team", link: "team" },
+            { label: "experience", link: "experience" },
             { label: "contact", link: "contact" },
           ].map((item) => (
             <a
@@ -217,6 +196,7 @@ const Navbar = () => {
           {[
             { label: "บริการ", link: "services" },
             { label: "ทีมงาน", link: "team" },
+            { label: "ประสบการณ์", link: "experience" },
             { label: "ติดต่อเรา", link: "contact" },
           ].map((item) => (
             <a
@@ -410,6 +390,38 @@ const TeamSection = () => {
                   ))}
                 </div>
               </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const ExperienceSection = () => {
+  return (
+    <section id="experience" className="py-24 bg-white relative">
+      <div className="container mx-auto px-6">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-xs font-bold uppercase tracking-wider mb-6">
+            Our Experience
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+            ประสบการณ์ของเรา
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          {EXPERIENCES.map((exp, index) => (
+            <div
+              key={index}
+              className="aspect-square rounded-2xl overflow-hidden bg-slate-100 flex items-center justify-center p-8 hover:shadow-lg transition-shadow duration-300"
+            >
+              <img
+                src={exp.image}
+                alt={exp.name}
+                className="w-full h-full object-contain"
+              />
             </div>
           ))}
         </div>
@@ -798,6 +810,7 @@ export default function App() {
         <Hero />
         <ServicesSection />
         <TeamSection />
+        <ExperienceSection />
         <StatsSection />
         <ContactSection />
       </main>
