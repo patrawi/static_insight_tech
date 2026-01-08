@@ -136,6 +136,60 @@ const EXPERIENCES = [
   },
 ];
 
+const PROJECTS = [
+  {
+    category: "fintech",
+    categoryLabel: "FinTech",
+    categoryColor: "bg-red-500",
+    title: "Sale Detail Comparator",
+    description:
+      "เปรียบเทียบ Snapshot ของ Sale Detail เพื่อค้นหาความเปลี่ยนแปลงของข้อมูล และ ตรวจสอบความสอดคล้องของรายการขายในแต่ละช่วงเวลา สรุปและวิเคราะห์ข้อมูล PO Approval รายปี เพื่อใช้ในการควบคุมงบประมาณ",
+    image: "/works/snapshot_comparator.png",
+  },
+  {
+    category: "ai",
+    categoryLabel: "AI",
+    categoryColor: "bg-blue-500",
+    title: "Policy Intelligence Platform",
+    description:
+      "ร่างนโยบาย พร้อมวิเคราะห์ความเหมาะสมและผลกระทบด้วย AI \
+      ส่งนโยบายให้ผู้มีอำนาจพิจารณาและตัดสินใจอย่างเป็นระบบ\
+      ประกาศนโยบายอย่างเป็นทางการ และสื่อสารถึงพนักงานทุกคน",
+    image: "/works/policy_management_sys.png",
+  },
+  {
+    category: "businessIntelligence",
+    categoryLabel: "Business Intelligence",
+    categoryColor: "bg-teal-500",
+    title: "Inventory & Sales Analytics Platform (Pet Business)",
+    description:
+      "ระบบวิเคราะห์ข้อมูลยอดขายและสต๊อกสินค้าแบบครบวงจร สำหรับธุรกิจสัตว์เลี้ยง ช่วยให้เจ้าของธุรกิจมองเห็นภาพรวมยอดขาย สต๊อก และโอกาสสูญเสียรายได้ในที่เดียว รองรับการเลือกช่วงเวลา วิเคราะห์ตามหมวดสินค้า คำนวณยอดขาย กำไร ต้นทุน พร้อมระบบ \
+      Reorder & Inventory Risk (RU Score) เพื่อช่วยตัดสินใจเติมสินค้าได้อย่างแม่นยำ ลดของขาด-ของค้าง และเพิ่มประสิทธิภาพการบริหารธุรกิจด้วยข้อมูลจริง \
+      ช่วยให้ผู้บริหารและเจ้าของธุรกิจตัดสินใจจากข้อมูลจริง (Data-driven Decision)",
+    image: "/works/inventory.png",
+  },
+  {
+    category: "dataEng",
+    categoryLabel: "Data Engineering",
+    categoryColor: "bg-indigo-500",
+    title: "Dremio Job Scheduler",
+    description:
+      "ตั้ง Schedule Run สำหรับ Query ที่มีความซับซ้อนใน Dremio \
+      Export ผลลัพธ์เป็นตารางหรือไฟล์อัตโนมัติ \
+      ส่งข้อมูลขึ้น S3 เพื่อเชื่อมต่อกับระบบ BI เช่น Superset ได้อย่างราบรื่น",
+    image: "/works/dremio.png",
+  },
+  {
+    category: "ai",
+    categoryLabel: "AI",
+    categoryColor: "bg-blue-500",
+    title: "PDF To CSV OCR",
+    description:
+      "ระบบ AI OCR อัจฉริยะสำหรับแปลงข้อมูลจากเอกสาร PDF ที่มีความซับซ้อนสูงให้เป็นไฟล์ CSV แบบมีโครงสร้าง สำหรับจัดการเอกสารทางธุรกิจ เช่น รายงานประจำปี  หรือตารางหลายคอลัมน์ ช่วยลดเวลาและภาระงานป้อนข้อมูลด้วยมือ (Manual Entry)  พร้อมเพิ่มความแม่นยำในการดึงข้อมูลด้วยเทคโนโลยี Machine Learning",
+    image: "/works/ai_automation.png",
+  },
+];
+
 // --- SUB-COMPONENTS ---
 
 const Navbar = () => {
@@ -166,6 +220,7 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-8">
           {[
             { label: "services", link: "services" },
+            { label: "work", link: "work" },
             { label: "team", link: "team" },
             { label: "experience", link: "experience" },
             { label: "contact", link: "contact" },
@@ -195,6 +250,7 @@ const Navbar = () => {
         <div className="md:hidden absolute top-full left-0 w-full bg-slate-900 border-t border-slate-800 p-6 flex flex-col gap-4 shadow-2xl">
           {[
             { label: "บริการ", link: "services" },
+            { label: "ผลงาน", link: "work" },
             { label: "ทีมงาน", link: "team" },
             { label: "ประสบการณ์", link: "experience" },
             { label: "ติดต่อเรา", link: "contact" },
@@ -424,6 +480,118 @@ const ExperienceSection = () => {
               />
             </div>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const WorkSection = () => {
+  const [activeFilter, setActiveFilter] = useState<string>("all");
+
+  const filters = [
+    { label: "All Projects", value: "all" },
+    { label: "FinTech", value: "fintech" },
+    { label: "Business Intelligence", value: "businessIntelligence" },
+    { label: "Data Engineering", value: "dataEng" },
+    { label: "AI", value: "ai" },
+  ];
+
+  const filteredProjects =
+    activeFilter === "all"
+      ? PROJECTS
+      : PROJECTS.filter((project) => project.category === activeFilter);
+
+  return (
+    <section id="work" className="py-24 bg-gray-50 relative">
+      <div className="container mx-auto px-6">
+        {/* Header Section */}
+        <div className="text-center max-w-4xl mx-auto mb-12">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-wider mb-6">
+            Case Studies
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
+            Transforming Visions into{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+              Digital Reality
+            </span>
+          </h2>
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+            We build software and data solutions that help organizations work
+            smarter, move faster, and make better decisions.
+          </p>
+        </div>
+
+        {/* Filter Buttons */}
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
+          {filters.map((filter) => (
+            <button
+              key={filter.value}
+              onClick={() => setActiveFilter(filter.value)}
+              className={`px-6 py-2 rounded-full text-sm font-medium transition-all shadow-lg ${
+                activeFilter === filter.value
+                  ? "bg-slate-900 text-white shadow-slate-500/30"
+                  : "bg-white text-slate-600 border border-slate-200 hover:border-blue-500 hover:text-blue-600"
+              }`}
+            >
+              {filter.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {filteredProjects.map((project, index) => (
+            <article
+              key={index}
+              className="group relative h-[420px] rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300"
+            >
+              {/* Background with image */}
+              <div className="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+                {/* Overlay Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+              </div>
+
+              {/* Content */}
+              <div className="absolute bottom-0 left-0 w-full p-8 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                <div className="mb-2 flex items-center gap-2">
+                  <span
+                    className={`px-3 py-1 text-xs font-bold text-white ${project.categoryColor} rounded-full bg-opacity-90`}
+                  >
+                    {project.categoryLabel}
+                  </span>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-blue-100 transition-colors">
+                  {project.title}
+                </h3>
+                <p className="text-slate-300 text-sm mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 line-clamp-3">
+                  {project.description}
+                </p>
+                <div className="flex items-center text-white text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">
+                  View Case Study
+                  <ChevronRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="mt-20 text-center">
+          <h3 className="text-2xl font-bold text-slate-900 mb-4">
+            Ready to start your transformation?
+          </h3>
+          <a
+            href="#contact"
+            className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:text-lg transition-all shadow-lg hover:shadow-blue-500/40"
+          >
+            Get a Consultation
+          </a>
         </div>
       </div>
     </section>
@@ -809,6 +977,7 @@ export default function App() {
       <main>
         <Hero />
         <ServicesSection />
+        <WorkSection />
         <TeamSection />
         <ExperienceSection />
         <StatsSection />

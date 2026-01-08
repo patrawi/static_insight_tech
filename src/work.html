@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>InsightTech - Our Work</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+            rel="stylesheet"
+        />
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            insight: {
+                                50: "#f0f9ff",
+                                100: "#e0f2fe",
+                                500: "#0ea5e9", // Sky blue
+                                600: "#0284c7",
+                                800: "#075985", // Deep blue
+                                900: "#0c4a6e", // Darkest blue
+                            },
+                        },
+                        fontFamily: {
+                            sans: ["Inter", "sans-serif"],
+                        },
+                    },
+                },
+            };
+        </script>
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap");
+
+            /* Subtle parallax effect for card images */
+            .project-card:hover .card-image {
+                transform: scale(1.05);
+            }
+
+            .glass-overlay {
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+            }
+        </style>
+    </head>
+    <body class="bg-gray-50 text-gray-800 font-sans antialiased">
+        <!-- Navigation Placeholder (Context) -->
+        <nav class="w-full py-4 px-6 bg-white border-b border-gray-100">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <div
+                    class="font-bold text-2xl text-insight-900 tracking-tighter"
+                >
+                    InsightTech
+                </div>
+                <div
+                    class="hidden md:flex space-x-6 text-sm font-medium text-gray-500"
+                >
+                    <a href="#" class="hover:text-insight-600 transition"
+                        >Services</a
+                    >
+                    <a href="#" class="text-insight-600">Our Work</a>
+                    <a href="#" class="hover:text-insight-600 transition"
+                        >About</a
+                    >
+                    <a href="#" class="hover:text-insight-600 transition"
+                        >Contact</a
+                    >
+                </div>
+            </div>
+        </nav>
+
+        <!-- Header Section -->
+        <section class="relative pt-20 pb-12 px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2
+                    class="text-insight-500 font-semibold tracking-wide uppercase text-sm mb-3"
+                >
+                    Case Studies
+                </h2>
+                <h1
+                    class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight"
+                >
+                    Transforming Visions into <br />
+                    <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-insight-600 to-indigo-600"
+                        >Digital Reality</span
+                    >
+                </h1>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    We partner with global enterprises to modernize legacy
+                    systems, automate complex workflows, and unlock the value of
+                    data.
+                </p>
+            </div>
+        </section>
+
+        <!-- Filter Buttons (Interactive Logic) -->
+        <section class="px-6 pb-12">
+            <div
+                class="max-w-7xl mx-auto flex flex-wrap justify-center gap-4"
+                id="filter-container"
+            >
+                <button
+                    class="filter-btn active px-6 py-2 rounded-full bg-insight-900 text-white text-sm font-medium transition-all shadow-lg shadow-insight-500/30"
+                    data-filter="all"
+                >
+                    All Projects
+                </button>
+                <button
+                    class="filter-btn px-6 py-2 rounded-full bg-white text-gray-600 border border-gray-200 hover:border-insight-500 hover:text-insight-600 text-sm font-medium transition-all"
+                    data-filter="fintech"
+                >
+                    FinTech
+                </button>
+                <button
+                    class="filter-btn px-6 py-2 rounded-full bg-white text-gray-600 border border-gray-200 hover:border-insight-500 hover:text-insight-600 text-sm font-medium transition-all"
+                    data-filter="healthcare"
+                >
+                    Healthcare
+                </button>
+                <button
+                    class="filter-btn px-6 py-2 rounded-full bg-white text-gray-600 border border-gray-200 hover:border-insight-500 hover:text-insight-600 text-sm font-medium transition-all"
+                    data-filter="manufacturing"
+                >
+                    Manufacturing
+                </button>
+            </div>
+        </section>
+
+        <!-- Projects Grid -->
+        <section class="px-6 pb-24">
+            <div
+                class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                id="projects-grid"
+            >
+                <!-- Project 1: FinTech -->
+                <article
+                    class="project-card group relative h-[420px] rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300"
+                    data-category="fintech"
+                >
+                    <div class="absolute inset-0 bg-gray-200 overflow-hidden">
+                        <!-- Placeholder for Bank/Data Image -->
+                        <svg
+                            class="card-image w-full h-full object-cover text-gray-300 transition-transform duration-700 ease-out"
+                            width="100%"
+                            height="100%"
+                            viewBox="0 0 400 600"
+                            preserveAspectRatio="none"
+                        >
+                            <rect width="100%" height="100%" fill="#f3f4f6" />
+                            <path
+                                d="M0 400 L400 300 L400 600 L0 600 Z"
+                                fill="#e5e7eb"
+                            />
+                            <circle
+                                cx="50"
+                                cy="50"
+                                r="200"
+                                fill="#e0f2fe"
+                                opacity="0.5"
+                            />
+                        </svg>
+                        <!-- Overlay Gradient -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"
+                        ></div>
+                    </div>
+
+                    <div
+                        class="absolute bottom-0 left-0 w-full p-8 translate-y-2 group-hover:translate-y-0 transition-transform duration-300"
+                    >
+                        <div class="mb-2 flex items-center gap-2">
+                            <span
+                                class="px-3 py-1 text-xs font-bold text-white bg-insight-500 rounded-full bg-opacity-90"
+                                >FinTech</span
+                            >
+                        </div>
+                        <h3
+                            class="text-2xl font-bold text-white mb-2 group-hover:text-insight-100 transition-colors"
+                        >
+                            NeoBank Cloud Migration
+                        </h3>
+                        <p
+                            class="text-gray-300 text-sm mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 line-clamp-3"
+                        >
+                            Migrated a legacy on-premise core banking system to
+                            a serverless AWS architecture, reducing operational
+                            costs by 40% and improving transaction speeds by
+                            300%.
+                        </p>
+                        <div
+                            class="flex items-center text-white text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200"
+                        >
+                            View Case Study
+                            <i
+                                class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"
+                            ></i>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 2: Manufacturing -->
+                <article
+                    class="project-card group relative h-[420px] rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300"
+                    data-category="manufacturing"
+                >
+                    <div class="absolute inset-0 bg-gray-200 overflow-hidden">
+                        <!-- Placeholder for Factory/IoT Image -->
+                        <svg
+                            class="card-image w-full h-full object-cover text-gray-300 transition-transform duration-700 ease-out"
+                            width="100%"
+                            height="100%"
+                            viewBox="0 0 400 600"
+                            preserveAspectRatio="none"
+                        >
+                            <rect width="100%" height="100%" fill="#1f2937" />
+                            <path
+                                d="M200 0 L400 600 L0 600 Z"
+                                fill="#374151"
+                                opacity="0.3"
+                            />
+                        </svg>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"
+                        ></div>
+                    </div>
+
+                    <div
+                        class="absolute bottom-0 left-0 w-full p-8 translate-y-2 group-hover:translate-y-0 transition-transform duration-300"
+                    >
+                        <div class="mb-2 flex items-center gap-2">
+                            <span
+                                class="px-3 py-1 text-xs font-bold text-white bg-indigo-500 rounded-full bg-opacity-90"
+                                >Manufacturing</span
+                            >
+                        </div>
+                        <h3
+                            class="text-2xl font-bold text-white mb-2 group-hover:text-indigo-100 transition-colors"
+                        >
+                            IoT Predictive Maintenance
+                        </h3>
+                        <p
+                            class="text-gray-300 text-sm mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 line-clamp-3"
+                        >
+                            Deployed edge-computing sensors across 5 global
+                            factories. Our ML models predict equipment failure
+                            48 hours in advance, saving $2M annually in
+                            downtime.
+                        </p>
+                        <div
+                            class="flex items-center text-white text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200"
+                        >
+                            View Case Study
+                            <i
+                                class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"
+                            ></i>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 3: Healthcare -->
+                <article
+                    class="project-card group relative h-[420px] rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300"
+                    data-category="healthcare"
+                >
+                    <div class="absolute inset-0 bg-gray-200 overflow-hidden">
+                        <!-- Placeholder for Medical Image -->
+                        <svg
+                            class="card-image w-full h-full object-cover text-gray-300 transition-transform duration-700 ease-out"
+                            width="100%"
+                            height="100%"
+                            viewBox="0 0 400 600"
+                            preserveAspectRatio="none"
+                        >
+                            <rect width="100%" height="100%" fill="#ecfeff" />
+                            <circle
+                                cx="350"
+                                cy="100"
+                                r="150"
+                                fill="#06b6d4"
+                                opacity="0.2"
+                            />
+                            <circle
+                                cx="50"
+                                cy="500"
+                                r="100"
+                                fill="#06b6d4"
+                                opacity="0.2"
+                            />
+                        </svg>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"
+                        ></div>
+                    </div>
+
+                    <div
+                        class="absolute bottom-0 left-0 w-full p-8 translate-y-2 group-hover:translate-y-0 transition-transform duration-300"
+                    >
+                        <div class="mb-2 flex items-center gap-2">
+                            <span
+                                class="px-3 py-1 text-xs font-bold text-white bg-teal-500 rounded-full bg-opacity-90"
+                                >Healthcare</span
+                            >
+                        </div>
+                        <h3
+                            class="text-2xl font-bold text-white mb-2 group-hover:text-teal-100 transition-colors"
+                        >
+                            Unified Patient Data Platform
+                        </h3>
+                        <p
+                            class="text-gray-300 text-sm mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 line-clamp-3"
+                        >
+                            Consolidated fragmented patient records from 15
+                            disparate systems into a single, FHIR-compliant data
+                            lake, enabling real-time analytics for 50k+
+                            patients.
+                        </p>
+                        <div
+                            class="flex items-center text-white text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200"
+                        >
+                            View Case Study
+                            <i
+                                class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"
+                            ></i>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 4: FinTech (Blockchain) -->
+                <article
+                    class="project-card group relative h-[420px] rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300"
+                    data-category="fintech"
+                >
+                    <div class="absolute inset-0 bg-gray-200 overflow-hidden">
+                        <svg
+                            class="card-image w-full h-full object-cover text-gray-300 transition-transform duration-700 ease-out"
+                            width="100%"
+                            height="100%"
+                            viewBox="0 0 400 600"
+                            preserveAspectRatio="none"
+                        >
+                            <rect width="100%" height="100%" fill="#1e1b4b" />
+                            <path
+                                d="M0 0 L400 400"
+                                stroke="#4f46e5"
+                                stroke-width="2"
+                            />
+                            <path
+                                d="M400 0 L0 400"
+                                stroke="#4f46e5"
+                                stroke-width="2"
+                            />
+                        </svg>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"
+                        ></div>
+                    </div>
+
+                    <div
+                        class="absolute bottom-0 left-0 w-full p-8 translate-y-2 group-hover:translate-y-0 transition-transform duration-300"
+                    >
+                        <div class="mb-2 flex items-center gap-2">
+                            <span
+                                class="px-3 py-1 text-xs font-bold text-white bg-insight-500 rounded-full bg-opacity-90"
+                                >FinTech</span
+                            >
+                        </div>
+                        <h3
+                            class="text-2xl font-bold text-white mb-2 group-hover:text-insight-100 transition-colors"
+                        >
+                            Secure Blockchain Ledger
+                        </h3>
+                        <p
+                            class="text-gray-300 text-sm mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 line-clamp-3"
+                        >
+                            Implemented a private permissioned blockchain for
+                            inter-bank settlements, reducing clearing time from
+                            3 days to near-instantaneous execution.
+                        </p>
+                        <div
+                            class="flex items-center text-white text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200"
+                        >
+                            View Case Study
+                            <i
+                                class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"
+                            ></i>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="mt-20 text-center">
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">
+                    Ready to start your transformation?
+                </h3>
+                <button
+                    class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-insight-600 hover:bg-insight-700 md:text-lg transition-all shadow-lg hover:shadow-insight-500/40"
+                >
+                    Get a Consultation
+                </button>
+            </div>
+        </section>
+
+        <script>
+            // Simple Filter Logic
+            document.addEventListener("DOMContentLoaded", () => {
+                const filterBtns = document.querySelectorAll(".filter-btn");
+                const projects = document.querySelectorAll(".project-card");
+
+                filterBtns.forEach((btn) => {
+                    btn.addEventListener("click", () => {
+                        // Update Active State
+                        filterBtns.forEach((b) => {
+                            b.classList.remove(
+                                "bg-insight-900",
+                                "text-white",
+                                "shadow-lg",
+                                "shadow-insight-500/30",
+                            );
+                            b.classList.add(
+                                "bg-white",
+                                "text-gray-600",
+                                "border",
+                                "border-gray-200",
+                            );
+                        });
+                        btn.classList.remove(
+                            "bg-white",
+                            "text-gray-600",
+                            "border",
+                            "border-gray-200",
+                        );
+                        btn.classList.add(
+                            "bg-insight-900",
+                            "text-white",
+                            "shadow-lg",
+                            "shadow-insight-500/30",
+                        );
+
+                        const category = btn.getAttribute("data-filter");
+
+                        // Filter Projects with simple animation
+                        projects.forEach((project) => {
+                            if (
+                                category === "all" ||
+                                project.getAttribute("data-category") ===
+                                    category
+                            ) {
+                                project.style.display = "block";
+                                // Small timeout to allow display:block to render before opacity change
+                                setTimeout(() => {
+                                    project.style.opacity = "1";
+                                    project.style.transform = "scale(1)";
+                                }, 10);
+                            } else {
+                                project.style.opacity = "0";
+                                project.style.transform = "scale(0.95)";
+                                setTimeout(() => {
+                                    project.style.display = "none";
+                                }, 300);
+                            }
+                        });
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>
