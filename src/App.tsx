@@ -572,10 +572,6 @@ const WorkSection = () => {
                 <p className="text-slate-300 text-sm mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 line-clamp-3">
                   {project.description}
                 </p>
-                <div className="flex items-center text-white text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">
-                  View Case Study
-                  <ChevronRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
-                </div>
               </div>
             </article>
           ))}
